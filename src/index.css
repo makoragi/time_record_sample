@@ -1,0 +1,59 @@
+body {
+  font-family: sans-serif;
+  margin: 20px;
+}
+
+.calendar {
+  user-select: none;
+}
+
+.header {
+  display: flex;
+}
+
+.day-header {
+  flex: 1;
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 4px 0;
+  background: #f0f0f0;
+  font-weight: bold;
+}
+
+.body {
+  display: flex;
+}
+
+.day-column {
+  flex: 1;
+  position: relative;
+  border: 1px solid #ccc;
+}
+
+.slot {
+  height: 30px;
+  border-bottom: 1px solid #eee;
+  position: relative;
+}
+
+.slot.selected {
+  background: rgba(0, 123, 255, 0.3);
+}
+
+.time-label {
+  position: absolute;
+  left: 2px;
+  font-size: 10px;
+  color: #888;
+}
+
+.record {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: rgba(0, 123, 255, 0.6);
+  color: #fff;
+  font-size: 12px;
+  padding-left: 2px;
+  box-sizing: border-box;
+}

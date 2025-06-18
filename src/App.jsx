@@ -1,44 +1,20 @@
 import { useState } from 'react';
+import WeeklyCalendar, { slotToTime } from './WeeklyCalendar';
 
 function App() {
-  const [records, setRecords] = useState([
-    { id: 1, task: '資料作成', start: '09:00', end: '10:30' },
-    { id: 2, task: '会議', start: '11:00', end: '12:00' },
-  ]);
-  const [task, setTask] = useState('');
-  const [start, setStart] = useState('');
-  const [end, setEnd] = useState('');
+  const [records, setRecords] = useState([]);
 
-  const addRecord = (e) => {
-    e.preventDefault();
-    if (!task || !start || !end) return;
-    setRecords([...records, { id: Date.now(), task, start, end }]);
-    setTask('');
-    setStart('');
-    setEnd('');
+  const addRecord = ({ day, startSlot, endSlot, task }) => {
+    setRecords((prev) => [
+      ...prev,
+      { id: Date.now(), day, startSlot, endSlot, task },
+    ]);
   };
 
   return (
     <div>
       <h1>作業時間記録アプリ</h1>
-      <form onSubmit={addRecord}>
-        <input
-          placeholder="作業内容"
-          value={task}
-          onChange={(e) => setTask(e.target.value)}
-        />
-        <input
-          type="time"
-          value={start}
-          onChange={(e) => setStart(e.target.value)}
-        />
-        <input
-          type="time"
-          value={end}
-          onChange={(e) => setEnd(e.target.value)}
-        />
-        <button type="submit">追加</button>
-      </form>
+      <WeeklyCalendar records={records} addRecord={addRecord} />
       <table>
         <thead>
           <tr>
@@ -51,8 +27,8 @@ function App() {
           {records.map((r) => (
             <tr key={r.id}>
               <td>{r.task}</td>
-              <td>{r.start}</td>
-              <td>{r.end}</td>
+              <td>{slotToTime(r.startSlot)}</td>
+              <td>{slotToTime(r.endSlot)}</td>
             </tr>
           ))}
         </tbody>
