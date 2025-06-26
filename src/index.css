@@ -36,8 +36,56 @@ body {
   position: relative;
 }
 
+
+/* デフォルトの選択カラー */
 .slot.selected {
   background: rgba(0, 123, 255, 0.3);
+}
+
+/* 曜日ごとの選択範囲と登録済み作業の色分け */
+/* 月曜日 */
+.day-column:nth-child(1) .slot.selected,
+.day-column:nth-child(1) .record {
+  background: rgba(255, 99, 132, 0.3);
+}
+.day-column:nth-child(1) .record {
+  background: rgba(255, 99, 132, 0.6);
+}
+
+/* 火曜日 */
+.day-column:nth-child(2) .slot.selected,
+.day-column:nth-child(2) .record {
+  background: rgba(255, 159, 64, 0.3);
+}
+.day-column:nth-child(2) .record {
+  background: rgba(255, 159, 64, 0.6);
+}
+
+/* 水曜日 */
+.day-column:nth-child(3) .slot.selected,
+.day-column:nth-child(3) .record {
+  background: rgba(255, 205, 86, 0.3);
+}
+.day-column:nth-child(3) .record {
+  background: rgba(255, 205, 86, 0.6);
+}
+
+/* 木曜日 */
+.day-column:nth-child(4) .slot.selected,
+.day-column:nth-child(4) .record {
+  background: rgba(75, 192, 192, 0.3);
+}
+.day-column:nth-child(4) .record {
+  background: rgba(75, 192, 192, 0.6);
+}
+
+/* 金曜日 */
+.day-column:nth-child(5) .slot.selected,
+.day-column:nth-child(5) .record {
+  background: rgba(54, 162, 235, 0.3);
+}
+.day-column:nth-child(5) .record {
+  background: rgba(54, 162, 235, 0.6);
 }
 
 .time-label {
